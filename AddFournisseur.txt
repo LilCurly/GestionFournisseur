@@ -3,28 +3,27 @@ PROCEDURE AddFournisseur(in/out arrFournisseurs : Fournisseur[], in/out taille :
 	var nFournisseur : Fournisseur
 	Si taille < 50 ET ContainsCaract(nom) ET IsNameUnique(arrFournisseur, taille, nom)
 		Alors
+			id <- id + 1
 			nFournisseur <- CREER Fournisseur
+			nFournisseur.id <- id
 			nFournisseur.nom <- nom
 			nFournisseur.tel <- tel
 			nFournisseur.mail <- mail
 			nFournisseur.commande <- commande
 			Afficher("Voici les coordonnées du nouveau fournisseur :")
-			Afficher("Nom : " + nFournisseur.nom)
-			Afficher("Téléphone : " + nFournisseur.tel)
-			Afficher("Email : " + nFournisseur.mail)
-			Afficher("Commande : " + nFournisseur.commande)
+			ShowInfo(nFournisseur)
 			Afficher("Êtes vous sûr de vouloir l'enregistrer ? (1 : Oui / 0 : 			Non")
 			Repeter
 				Saisir confirmation
 			Jusqu'a ce que confirmation = "1" OU confirmation = "0"
 			Si confirmation = "1"
 				Alors
-					id <- id + 1
 					taille <- taille + 1
-					nFournisseur.id <- id
 					arrFournisseur[taille] <- nFournisseur
 					Afficher("Fournisseur ajouté!")
-				Sinon Afficher("Ajout annulé!")
+				Sinon 
+					id <- id - 1
+					Afficher("Ajout annulé!")
 			Fin si
 		Sinon Afficher("Ajout impossible!")
 	Fin si	
