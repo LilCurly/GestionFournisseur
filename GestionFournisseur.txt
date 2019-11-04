@@ -1,0 +1,28 @@
+DEBUT GestionFournisseur
+	DEBUT Variables
+		var id : N <- 1
+		var taille : N <- 1
+		var arrFournisseurs : Fournisseur[50]
+		var option : T <- ""
+	Fin Variables
+	Répéter
+		Afficher("Bienvenu sur l'application de gestion des fournisseurs!")
+		Afficher("1 : Ajouter un fournisseur")
+		Afficher("2 : Lister les fournisseurs")
+		Afficher("3 : Rechercher un fournisseur par son ID")
+		Afficher("4 : Rechercher un fournisseur par son nom")
+		Afficher("5 : Modifier les coordonnées d'un fournisseur")
+		Afficher("6 : Supprimer un fournisseur")
+		Afficher("0 : Quitter l'application")
+		Afficher("Saisissez votre option : ")
+		Saisir option
+		Si option = "1"
+			Alors AddFournisseur(arrFournisseurs, taille, id)
+			Sinon Si option = "2"
+				Alors ShowFournisseurs(arrFournisseurs, taille)
+				Sinon Si option = "3"
+					Alors ShowById(arrFournisseurs, taille)
+					Sinon si option = "4"
+						Alors ShowByName(arrFournisseurs, taille)
+	Jusqu'à ce que option = "0"
+Fin GestionFournisseur
