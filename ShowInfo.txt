@@ -1,0 +1,8 @@
+PROCEDURE ShowInfo(fournisseur : Fournisseur)
+	Afficher(------------)
+	Afficher("ID : " fournisseur.id)
+	Afficher("Nom : " fournisseur.nom)
+	Afficher("Téléphone : " fournisseur.tel)
+	Afficher("Email : " fournisseur.mail)
+	Afficher("Commande : " fournisseur.commande)
+Fin ShowInfo
