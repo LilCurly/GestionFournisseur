@@ -1,0 +1,22 @@
+PROCEDURE ShowById(in arrFournisseurs : Fournisseur[], in taille : N)
+	var index : N <- 1
+	var found : B <- FAUX
+	var id : N <- 0
+	Si taille > 0
+		Alors
+			Afficher("Saisissez l'ID du fournisseur recherché : ")
+			Saisir id
+			Tant que index <= taille ET NOT found
+				Si arrFournisseurs[index].id = id
+					Alors
+						ShowInfo(arrFournisseur[index])
+						found <- VRAI
+				Fin si
+				index <- index + 1
+			Fin tant que
+			Si NOT found
+				Alors Afficher("Aucun fournisseur avec cet ID trouvé!")
+		Sinon Afficher("Aucun fournisseur enregistré")
+	Fin si
+	Afficher("Retour au menu principal")
+Fin ShowById
