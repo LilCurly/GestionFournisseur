@@ -1,0 +1,34 @@
+PROCEDURE DeleteFournisseur(in/out arrFournisseurs : Fournisseur[], in/out taille)
+	var id : N <- 0
+	var confirmation : T <- ""
+	Si taille > 0
+		Alors
+			Afficher("Entrez l'identifiant du fournisseur à supprimer : ")
+			Saisir id
+			Pour i allant de 1 à taille
+				Si arrFournisseurs[i].id = id
+					Alors Si NOT arrFournisseurs[i].commande
+						Alors
+							ShowInfo(arrFournisseurs[i])
+							Afficher("Êtes vous certain de vouloir supprimer ce fournisseur ? (1 : Oui / 0 : Non")
+							Saisir confirmation
+							Si confirmation = "1"
+								Alors
+									Si i < 50
+										Alors
+											Pour j allant de i + 1 à taille
+												arrFournisseurs[j - 1] <- arrFournisseurs[j]
+											j suivant
+											arrFournisseurs[taille] <- NULL
+										Sinon arrFournisseurs[50] <- NULL
+									Fin si
+									taille <- taille - 1
+								Sinon Afficher("Suppression annulée")
+						Sinon Afficher("Ce fournisseur a une commande en cours")
+					Sinon Afficher("Fournisseur introuvable")
+				Fin si
+			i suivant
+		Sinon Afficher("Aucun fournisseur enregistré")
+	Fin si
+	Afficher("Retour au menu principal")
+Fin DeleteFournisseur
