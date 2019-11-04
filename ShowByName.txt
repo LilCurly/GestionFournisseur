@@ -1,0 +1,22 @@
+PROCEDURE ShowByName(in arrFournisseurs : Fournisseur[], in taille : N)
+	var index : N <- 1
+	var found : B <- FAUX
+	var name : T <- ""
+	Si taille > 0
+		Alors
+			Afficher("Saisissez le nom du fournisseur recherché : ")
+			Saisir name
+			Tant que index <= taille ET NOT found
+				Si arrFournisseurs[index].nom = name
+					Alors
+						ShowInfo(arrFournisseurs[index])
+						found <- VRAI
+				Fin si
+				index <- index + 1
+			Fin tant que
+			Si NOT found
+				Alors Afficher("Aucun fournisseur avec ce nom trouvé")
+		Sinon Afficher("Aucun fournisseur enregistré")
+	Fin si
+	Afficher("Retour au menu principal")
+Fin ShowByName
