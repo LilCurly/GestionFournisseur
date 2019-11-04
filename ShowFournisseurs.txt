@@ -1,0 +1,12 @@
+PROCEDURE ShowFournisseurs(in arrFournisseurs : Fournisseur[], in taille)
+	Si taille > 0
+		Alors 
+			Pour i allant de 1 à taille
+				Afficher("-------------")
+				Afficher("Identifiant : " + arrFournisseurs[i].id)
+				Afficher("Nom : " + arrFournisseurs[i].nom)
+			i suivant
+		Sinon Afficher("Aucun fournisseur enregistré")
+	Fin si
+Fin ShowFournisseurs
+		
