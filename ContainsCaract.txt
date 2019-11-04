@@ -2,7 +2,7 @@
 FUNCTION ContainsCaract(texte : T) : B
 	var result : B <- FAUX
 	var index : N <- 1
-	Tant que index <= longueur(texte) ET result = FAUX
+	Tant que index <= longueur(texte) ET NON result
 		Si caract(texte, index) != ' '
 			Alors result <- VRAI
 		Fin si
