@@ -1,31 +1,53 @@
-PROCEDURE AddFournisseur(in/out arrFournisseurs : Fournisseur[], in/out taille : N, in/out id : N, in nom : T, in tel : T, in mail : T, in commande : B)
+PROCEDURE AddFournisseur(in/out arrFournisseurs : Fournisseur[], in/out taille : N, in/out id : N)
+	var nom : T <- ""
+	var tel : T <- ""
+	var mail : T <- ""
+	var commande : B <- FAUX
 	var confirmation : T <- ""
 	var nFournisseur : Fournisseur
-	Si taille < 50 ET ContainsCaract(nom) ET IsNameUnique(arrFournisseur, taille, nom)
+	Si taille < 50	
 		Alors
-			id <- id + 1
-			nFournisseur <- CREER Fournisseur
-			nFournisseur.id <- id
-			nFournisseur.nom <- nom
-			nFournisseur.tel <- tel
-			nFournisseur.mail <- mail
-			nFournisseur.commande <- commande
-			Afficher("Voici les coordonnées du nouveau fournisseur :")
-			ShowInfo(nFournisseur)
-			Afficher("Êtes vous sûr de vouloir l'enregistrer ? (1 : Oui / 0 : 			Non")
+			Afficher("Encodez les informations du fournisseur")
+			Afficher("Nom : ")
+			Saisir nom
+			Afficher("Téléphone : ")
+			Saisir tel
+			Afficher("Email : ")
+			Saisir mail
+			Afficher("Attendez-vous une commande de ce fournisseur ?(1 : Oui / 			0 : Non")
 			Repeter
 				Saisir confirmation
 			Jusqu'a ce que confirmation = "1" OU confirmation = "0"
 			Si confirmation = "1"
-				Alors
-					taille <- taille + 1
-					arrFournisseur[taille] <- nFournisseur
-					Afficher("Fournisseur ajouté!")
-				Sinon 
-					id <- id - 1
-					Afficher("Ajout annulé!")
+				Alors commande <- VRAI
 			Fin si
-		Sinon Afficher("Ajout impossible!")
+			confirmation <- ""
+			Si ContainsCaract(nom) ET IsNameUnique(arrFournisseur, taille, 				nom)
+				Alors
+					id <- id + 1
+					nFournisseur <- CREER Fournisseur
+					nFournisseur.id <- id
+					nFournisseur.nom <- nom
+					nFournisseur.tel <- tel
+					nFournisseur.mail <- mail
+					nFournisseur.commande <- commande
+					Afficher("Voici les coordonnées du nouveau 						fournisseur :")
+					ShowInfo(nFournisseur)
+					Afficher("Êtes vous sûr de vouloir l'enregistrer ? 					(1 : Oui / 0 : Non")
+					Repeter
+						Saisir confirmation
+					Jusqu'a ce que confirmation = "1" OU confirmation 					= "0"
+					Si confirmation = "1"
+						Alors
+							taille <- taille + 1
+							arrFournisseur[taille] <- 								nFournisseur
+							Afficher("Fournisseur ajouté!")
+						Sinon 
+							id <- id - 1
+							Afficher("Ajout annulé!")
+					Fin si
+				Sinon Afficher("Ajout impossible!")
+		Sinon Afficher("La limite de fournisseur est atteinte!")
 	Fin si	
 	Afficher ("Retour au menu principal")
 Fin AddFournisseur
