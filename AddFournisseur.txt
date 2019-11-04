@@ -14,7 +14,7 @@ PROCEDURE AddFournisseur(in/out arrFournisseurs : Fournisseur[], in/out taille :
 			Saisir tel
 			Afficher("Email : ")
 			Saisir mail
-			Afficher("Attendez-vous une commande de ce fournisseur ?(1 : Oui / 			0 : Non")
+			Afficher("Attendez-vous une commande de ce fournisseur ?(1 : Oui / 0 : Non")
 			Repeter
 				Saisir confirmation
 			Jusqu'a ce que confirmation = "1" OU confirmation = "0"
@@ -22,7 +22,7 @@ PROCEDURE AddFournisseur(in/out arrFournisseurs : Fournisseur[], in/out taille :
 				Alors commande <- VRAI
 			Fin si
 			confirmation <- ""
-			Si ContainsCaract(nom) ET IsNameUnique(arrFournisseur, taille, 				nom)
+			Si ContainsCaract(nom) ET IsNameUnique(arrFournisseur, taille, nom)
 				Alors
 					id <- id + 1
 					nFournisseur <- CREER Fournisseur
@@ -31,16 +31,16 @@ PROCEDURE AddFournisseur(in/out arrFournisseurs : Fournisseur[], in/out taille :
 					nFournisseur.tel <- tel
 					nFournisseur.mail <- mail
 					nFournisseur.commande <- commande
-					Afficher("Voici les coordonnées du nouveau 						fournisseur :")
+					Afficher("Voici les coordonnées du nouveau fournisseur :")
 					ShowInfo(nFournisseur)
-					Afficher("Êtes vous sûr de vouloir l'enregistrer ? 					(1 : Oui / 0 : Non")
+					Afficher("Êtes vous sûr de vouloir l'enregistrer ? (1 : Oui / 0 : Non")
 					Repeter
 						Saisir confirmation
-					Jusqu'a ce que confirmation = "1" OU confirmation 					= "0"
+					Jusqu'a ce que confirmation = "1" OU confirmation = "0"
 					Si confirmation = "1"
 						Alors
 							taille <- taille + 1
-							arrFournisseur[taille] <- 								nFournisseur
+							arrFournisseur[taille] <- nFournisseur
 							Afficher("Fournisseur ajouté!")
 						Sinon 
 							id <- id - 1
