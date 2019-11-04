@@ -22,7 +22,9 @@ DEBUT GestionFournisseur
 				Alors ShowFournisseurs(arrFournisseurs, taille)
 				Sinon Si option = "3"
 					Alors ShowById(arrFournisseurs, taille)
-					Sinon si option = "4"
+					Sinon Si option = "4"
 						Alors ShowByName(arrFournisseurs, taille)
+						Sinon Si option = "6"
+							Alors DeleteFournisseur(arrFournisseurs, taille)
 	Jusqu'à ce que option = "0"
 Fin GestionFournisseur
