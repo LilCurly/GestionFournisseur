@@ -1,4 +1,4 @@
-STRUCTURE fournisseur
+STRUCTURE Fournisseur
 	var id : N
 	var nom : T
 	var tel : T
