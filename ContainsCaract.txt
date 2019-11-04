@@ -1,0 +1,11 @@
+// Supposant que longueur(texte) renvoie 0 pour une chaine de caractère vide
+FUNCTION ContainsCaract(texte : T) : B
+	var result : B <- FAUX
+	var index : N <- 1
+	Tant que index <= longueur(texte) ET result = FAUX
+		Si caract(texte, index) != ' '
+			Alors result <- VRAI
+		Fin si
+	Fin tant que
+	RETOURNER result
+Fin ContainsCaract
