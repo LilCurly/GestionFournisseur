@@ -8,5 +8,5 @@ PROCEDURE ShowFournisseurs(in arrFournisseurs : Fournisseur[], in taille)
 			i suivant
 		Sinon Afficher("Aucun fournisseur enregistré")
 	Fin si
+	Afficher("Retour au menu principal")
 Fin ShowFournisseurs
-		
