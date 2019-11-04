@@ -1,0 +1,7 @@
+STRUCTURE fournisseur
+	var id : N
+	var nom : T
+	var tel : T
+	var mail : T
+	var commande : B
+FIN STRUCTURE
