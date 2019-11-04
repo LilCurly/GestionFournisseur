@@ -1,0 +1,10 @@
+FUNCTION IsNameUnique(arrFournisseurs : Fournisseur[], taille : N, nom : T) : B
+	var result : B <- VRAI
+	var index : N <- 1
+	Tant que index <= taille ET result
+		Si arrFournisseur[index].nom == nom
+			Alors result <- FAUX
+		Fin si
+	Fin tant que
+	RETOURNER result
+Fin IsNameUnique
